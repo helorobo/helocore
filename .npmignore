@@ -1,0 +1,14 @@
+# Source code
+src/
+index.ts
+
+# Configs
+.github/
+.vscode/
+tsconfig.json
+
+# Lock files
+yarn.lock
+
+# MacOS specific files
+.DS_Store

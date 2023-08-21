@@ -1,0 +1,11 @@
+node_modules/
+
+# Compiled output
+build/
+
+# IDE
+/.idea
+/.vscode
+
+# MacOS specific files
+.DS_Store
