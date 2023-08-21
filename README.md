@@ -277,14 +277,14 @@ export default class PermissionControl implements IDefinePermission {
 
 ```typescript
 // testcontroller.ts
-import { Controller, Body, Middleware, injectable, Post } from "helocore";
+import { Controller, Body, Middleware, injectable, Post, Permissions } from "helocore";
 
 @Controller('/prefix')
 @injectable()
 export default class TestController {
   
   @Post('/save')
-  Permissions('test.create', 'test.list')
+  @Permissions('test.create', 'test.list')
   Save(@Body body: TBody) {
     // ...
   }
