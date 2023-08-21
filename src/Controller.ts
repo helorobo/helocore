@@ -153,7 +153,7 @@ export function Controller<T extends readonly object[]>(prefix: string = '', mid
       if (originalMethod instanceof Function && method !== 'constructor') {
 
         target.prototype[method] = async function (...args: any[]) {
-          args[0].trace_id = customAlphabet('1234567890abcdefghijklmnoprstuvyzwqx', length)().toLowerCase()
+          args[0].trace_id = customAlphabet('1234567890abcdefghijklmnoprstuvyzwqx', 30)().toLowerCase()
 
           let requestStatus = true
           function setRequestSocketStatus() {
