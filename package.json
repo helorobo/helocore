@@ -1,6 +1,6 @@
 {
   "name": "helocore",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight Node.js and TypeScript dependency injection framework",
   "main": "build/index.js",
   "types": "build/index.d.ts",
