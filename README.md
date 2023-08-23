@@ -4,6 +4,7 @@
 version](https://img.shields.io/npm/v/helocore.svg?style=flat)](https://www.npmjs.com/package/helocore)
 [![NPM
 downloads](https://img.shields.io/npm/dm/helocore.svg?style=flat)](https://www.npmjs.com/package/helocore)
+[![Release](https://github.com/helorobo/helocore/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/helorobo/helocore/actions/workflows/build.yaml)
 
 A lightweight Node.js and TypeScript dependency injection framework powered [tsyringe](https://github.com/Microsoft/tsyringe). for building APIs and microservices. You can use only with [fastify](https://github.com/fastify/fastify).
 
