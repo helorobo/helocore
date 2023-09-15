@@ -41,6 +41,9 @@ Modify your `tsconfig.json` to include the following settings
 
 ```typescript
 // Redis.ts
+import { singleton } from "helocore";
+
+@singleton()
 export default class Redis {
   // ...
 }
