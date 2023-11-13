@@ -31,7 +31,7 @@ export class Routes {
       } else {
         fastify[route.endpoint.method](endpoint, route.controllerFunction)
       }
-      console.log('\u001B[92m' + route.endpoint.method.toUpperCase() + '\u001B[0m', '\u001B[95m->\u001B[0m', '\u001B[94m' + endpoint + '\u001B[0m')
+      console.log('\u001B[92m' + route.endpoint.method.toUpperCase() + '\u001B[0m', '\u001B[95m->\u001B[0m', '\u001B[94m' + fastify.prefix + endpoint + '\u001B[0m')
     }
   }
 }
