@@ -237,10 +237,15 @@ async function getMetaData(req: TCustomFastifyRequest, res: FastifyReply, target
 
   const fileParameters: FileType = Reflect.getOwnMetadata(fileMetadataKey, target, method)
   if (fileParameters) {
-    if (!req.body[fileParameters.field]) {
-      throw new Error("File not Found");
+    try {
+      if (!req.body[fileParameters.field]) {
+        throw new Error("File not Found")
+      }
+
+      args.push({ id: fileParameters.index, data: req.body[fileParameters.field] })
+    } catch (error) {
+      throw new Error("Request Body not Found")
     }
-    args.push({ id: fileParameters.index, data: req.body[fileParameters.field] })
   }
 
   // custom decoratorler tek bir symbol den geldiği için tüm hepsini arayıp fonksiyona veriyoruz
