@@ -32,8 +32,7 @@ export function Reply(target: Object, propertyKey: string | symbol, parameterInd
   Reflect.defineMetadata(replyMetadataKey, [parameterIndex], target, propertyKey)
 }
 
-// daha sonra export edilecek
-function File(field: string) {
+export function File(field: string) {
   return function (target: Object, propertyKey: string | symbol, parameterIndex: number) {
     Reflect.defineMetadata(fileMetadataKey, { field: field, index: [parameterIndex] }, target, propertyKey)
   }
