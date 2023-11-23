@@ -131,6 +131,8 @@ async function runController(req: TCustomFastifyRequest, res: FastifyReply, targ
       return
     }
 
+    response.trace_id = req.trace_id
+
     return res.status(response.status_code || 200).send(response)
   } catch (error) {
     pino().error({
@@ -153,7 +155,9 @@ export function Controller<T extends readonly object[]>(prefix: string = '', mid
       if (originalMethod instanceof Function && method !== 'constructor') {
 
         target.prototype[method] = async function (...args: any[]) {
-          args[0].trace_id = customAlphabet('1234567890abcdefghijklmnoprstuvyzwqx', 30)().toLowerCase()
+          if (!args[0].trace_id) {
+            args[0].trace_id = customAlphabet('1234567890abcdefghijklmnoprstuvyzwqx', 30)().toLowerCase()
+          }
 
           let requestStatus = true
           function setRequestSocketStatus() {
