@@ -19,6 +19,7 @@ A lightweight Node.js and TypeScript dependency injection framework powered [tsy
   - [RateLimit()](#ratelimit)
   - [CustomParamDecorator](#customparamdecorator)
   - [Service](#service)
+  - [Events](#events)
 
 ## Installation
 
@@ -60,15 +61,21 @@ export default class ResponseModel<T> {
 
 ```typescript
 // application.ts
-import { Modules, PermissionModule, HandleErrorResponse, DataSource, dataSourceList } from "helocore";
+import { Modules, PermissionModule, HandleErrorResponse, DataSource, dataSourceList, EventsModules } from "helocore";
 import TestController from './TestController'
 import PermissionControl from './PermissionControl'
 import Redis from './Redis'
 import ResponseModel from './ResponseModel'
+import EventsTest from './Events'
 
 // Controller layer defining
 Modules([
   TestController
+])
+
+// Event layer defining
+EventsModules([
+  EventsTest
 ])
 
 // Permission Control Layer
@@ -416,6 +423,45 @@ export default class TestController {
   @Post('/save')
   Save() {
     this.testService.Save(lang)
+    // ...
+  }
+}
+```
+
+### Events
+
+You can determine events
+
+#### Usage
+```typescript
+// events.ts
+import { OnEvent, injectable } from 'helocore'
+
+@injectable()
+export default class EventTest {
+  @OnEvent('test')
+  create(data: object) {
+    console.log(data)
+  }
+}
+```
+
+
+
+```typescript
+// eventcontroller.ts
+import { Controller, Events, Get, injectable } from 'helocore'
+
+@Controller('/event')
+@injectable()
+export default class EventController {
+  constructor(
+    private readonly events: Events
+  ) { }
+
+  @Get('/')
+  async EventTest() {
+    this.events.emit('test', { message: 'test_message' })
     // ...
   }
 }
