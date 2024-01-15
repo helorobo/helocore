@@ -433,6 +433,7 @@ export default class TestController {
 You can determine events
 
 #### Usage
+
 ```typescript
 // events.ts
 import { OnEvent, injectable } from 'helocore'
@@ -446,7 +447,17 @@ export default class EventTest {
 }
 ```
 
+```typescript
+// application.ts
+import { EventsModule } from 'helocore'
+import EventTest from "./EventTest"
 
+// ..
+EventsModule([
+  EventTest
+])
+// ..
+```
 
 ```typescript
 // eventcontroller.ts
