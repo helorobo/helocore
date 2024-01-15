@@ -16,7 +16,8 @@
     "example"
   ],
   "include": [
-    "**/*"
+    "index.ts",
+    "./src/**/*"
   ],
   "lib": [
     "es2015"
