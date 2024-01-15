@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "start": "nodemon --watch \"./**\"  --ext \"ts\" --exec \"ts-node src/index.ts\"",
+    "start": "nodemon --watch \"./**\"  --ext \"ts\" --exec \"ts-node index.ts\"",
     "build": "tsc",
     "lint": "eslint --ext .ts --ignore-path .gitignore --fix src"
   },
