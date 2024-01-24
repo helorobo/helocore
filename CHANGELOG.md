@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.14](https://github.com/helorobo/helocore/compare/v1.0.13...v1.0.14) (2024-01-24)
+
+
+### :rocket: Features
+
+* release-it config updated ([280d821](https://github.com/helorobo/helocore/commit/280d821ec5aea7989e1b024f7f873d7d4db113d0))
+
 ## [1.0.13](https://github.com/helorobo/helocore/compare/v1.0.12...v1.0.13) (2024-01-24)
 
 
