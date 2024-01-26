@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.16](https://github.com/helorobo/helocore/compare/v1.0.14...v1.0.16) (2024-01-26)
+
+
+### :rocket: Features
+
+* ci process updated ([1dd5694](https://github.com/helorobo/helocore/commit/1dd569486b7ca0a05fe8386ec6e8fbb2c3352ec8))
+
 ## [1.0.15](https://github.com/helorobo/helocore/compare/v1.0.14...v1.0.15) (2024-01-26)
 
 
