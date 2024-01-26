@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.15](https://github.com/helorobo/helocore/compare/v1.0.14...v1.0.15) (2024-01-26)
+
+
+### :rocket: Features
+
+* **github-actions:** github workflow updated ([04e1caa](https://github.com/helorobo/helocore/commit/04e1caa4f152ff0764f0b828e8d07595c4d2b0cf))
+
+
+### :hammer_and_wrench: Refactor
+
+* **npm:** npm ignore updated ([72acd12](https://github.com/helorobo/helocore/commit/72acd12885c5cb5ef28cca696dd653a7a382e41c))
+
 ## [1.0.14](https://github.com/helorobo/helocore/compare/v1.0.13...v1.0.14) (2024-01-24)
 
 

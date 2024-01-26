@@ -3,6 +3,9 @@ src/
 example/
 index.ts
 
+# release-it
+.release-it.json
+
 # Configs
 .github/
 .vscode/
