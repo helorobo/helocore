@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.17](https://github.com/helorobo/helocore/compare/v1.0.16...v1.0.17) (2024-01-26)
+
+
+### :bug: Bug Fixes
+
+* ci workflow updated ([396574d](https://github.com/helorobo/helocore/commit/396574d99a51ac5d60a2f918eeb950a1a404a1a7))
+
 ## [1.0.16](https://github.com/helorobo/helocore/compare/v1.0.14...v1.0.16) (2024-01-26)
 
 
