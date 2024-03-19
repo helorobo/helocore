@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.19](https://github.com/helorobo/helocore/compare/v1.0.18...v1.0.19) (2024-03-19)
+
+
+### :rocket: Features
+
+* docs updated ([a6324f9](https://github.com/helorobo/helocore/commit/a6324f93a5b02ce30897ee8315c4b628a4db942f))
+
 ## [1.0.18](https://github.com/helorobo/helocore/compare/v1.0.17...v1.0.18) (2024-03-19)
 
 
