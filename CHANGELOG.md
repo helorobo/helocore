@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.18](https://github.com/helorobo/helocore/compare/v1.0.17...v1.0.18) (2024-03-19)
+
+
+### :rocket: Features
+
+* endpoint options added ([626cf3f](https://github.com/helorobo/helocore/commit/626cf3f006510dccf49d202e2c13112d349a9895))
+
 ## [1.0.17](https://github.com/helorobo/helocore/compare/v1.0.16...v1.0.17) (2024-01-26)
 
 
