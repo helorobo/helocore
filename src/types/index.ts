@@ -1,5 +1,5 @@
 import { RateLimitOptions } from "@fastify/rate-limit"
-import { FastifyRequest, RouteHandlerMethod } from "fastify"
+import { FastifyRequest, RouteHandlerMethod, RouteShorthandOptions } from "fastify"
 
 export enum Method {
   Get = 'get',
@@ -20,7 +20,8 @@ export type EndpointData = {
 export type RoutesData = {
   endpoint: EndpointData,
   controllerFunction: RouteHandlerMethod,
-  rateLimit: RateLimitOptions
+  rateLimit: RateLimitOptions,
+  endpointOptions: RouteShorthandOptions
 }
 
 export type TCustomFastifyRequest = FastifyRequest & { trace_id: string }

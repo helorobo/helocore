@@ -4,6 +4,7 @@ export * from 'tsyringe'
 export { fetchRoutes } from './src/Routes'
 export { Controller } from './src/Controller'
 export * from './src/RateLimit'
+export * from './src/EndpointOptions'
 export * from './src/Service'
 export {
   IDefinePermission,

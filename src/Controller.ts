@@ -1,5 +1,5 @@
 import pino from "pino"
-import { FastifyReply, FastifyRequest } from "fastify"
+import { FastifyReply, RouteShorthandOptions } from "fastify"
 import { customAlphabet } from 'nanoid'
 import { Routes } from "./Routes"
 import { permissionModule, definePermissionFunction } from "./Permission"
@@ -21,6 +21,7 @@ export const middlewareMetadataKey = Symbol('middleware')
 export const permissionMetadataKey = Symbol('permission')
 export const fileMetadataKey = Symbol('file')
 export const rateLimitMetadataKey = Symbol('rateLimit')
+export const endpointOptionsMetadataKey = Symbol('endpointOptions')
 export const routesMetadataKey = 'routes'
 export const customDecorators: Array<CustomDecoratorList> = []
 export const definedMiddlewares: Array<TDefinedMiddlewares> = []
@@ -113,7 +114,9 @@ function createDynamicEndpoints(prefix: string, targetPrototype: Function, metho
     const rateLimit: RateLimitOptions = Reflect.getOwnMetadata(rateLimitMetadataKey, targetPrototype, method)
     existsEndpoint.prefix = prefix
 
-    Routes.addRoute(existsEndpoint, targetPrototype[method], rateLimit)
+    const endpointOptions: RouteShorthandOptions = Reflect.getOwnMetadata(endpointOptionsMetadataKey, targetPrototype, method)
+
+    Routes.addRoute(existsEndpoint, targetPrototype[method], rateLimit, endpointOptions)
   }
 }
 

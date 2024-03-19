@@ -1,4 +1,4 @@
-import { Controller, File, Middleware, Post, RateLimit, injectable } from 'helocore'
+import { Body, Controller, EndpointOptions, File, Middleware, Post, RateLimit, injectable } from 'helocore'
 import ServiceResponse from '../models/ServiceResponse'
 import { TFile } from '../types'
 import Validation from '../middleware/Validation'
@@ -26,6 +26,15 @@ export default class UploadController {
     serviceResponse.data = {
       url: 'url'
     }
+    return serviceResponse
+  }
+
+  @Post('/json-body')
+  @EndpointOptions({
+    bodyLimit: 10485760 // json body 11MB
+  })
+  async JsonBody(@Body body: any): Promise<ServiceResponse<any>> {
+    const serviceResponse = new ServiceResponse<any>()
     return serviceResponse
   }
 
