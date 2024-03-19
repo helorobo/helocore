@@ -20,6 +20,7 @@ A lightweight Node.js and TypeScript dependency injection framework powered [tsy
   - [CustomParamDecorator](#customparamdecorator)
   - [Service](#service)
   - [Events](#events)
+  - [EndpointOptions](#endpointoptions)
 
 ## Installation
 
@@ -477,6 +478,30 @@ export default class EventController {
   }
 }
 ```
+
+### EndpointOptions
+
+it can use fastify route options
+
+#### Usage
+
+```typescript
+// controller.ts
+import { Controller, EndpointOptions, Post, injectable } from 'helocore'
+
+@Controller('/')
+@injectable()
+export default class TestController {
+  @Post('/')
+  @EndpointOptions({ // fastify route options
+    bodyLimit: 10485760 // json body 11MB
+  })
+  async Test() {
+    // ...
+  }
+}
+```
+
 
 ## Contributing
 
