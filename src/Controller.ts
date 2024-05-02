@@ -54,6 +54,7 @@ async function runPrefixMiddleware<T extends readonly object[]>(req: TCustomFast
     }
   } catch (error) {
     pino().error({
+      trace_id: req.trace_id,
       timestamp: new Date(),
       message: 'Prefix middleware Error',
       error: typeof error === 'object' ? JSON.stringify(error) : error
@@ -74,6 +75,7 @@ async function runPermissionControl(req: TCustomFastifyRequest, res: FastifyRepl
     }
   } catch (error) {
     pino().error({
+      trace_id: req.trace_id,
       timestamp: new Date(),
       message: 'Permission Middleware Error',
       error: typeof error === 'object' ? JSON.stringify(error) : error
@@ -99,6 +101,7 @@ async function runMiddleware(req: TCustomFastifyRequest, res: FastifyReply, targ
     }
   } catch (error) {
     pino().error({
+      trace_id: req.trace_id,
       timestamp: new Date(),
       message: 'Controller Middleware Error',
       error: typeof error === 'object' ? JSON.stringify(error) : error
@@ -139,6 +142,7 @@ async function runController(req: TCustomFastifyRequest, res: FastifyReply, targ
     return res.status(response.status_code || 200).send(response)
   } catch (error) {
     pino().error({
+      trace_id: req.trace_id,
       timestamp: new Date(),
       message: 'Controller Error',
       error: typeof error === 'object' ? JSON.stringify(error) : error
