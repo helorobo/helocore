@@ -13,11 +13,8 @@
   },
   "exclude": [
     "node_modules",
-    "example"
-  ],
-  "include": [
-    "index.ts",
-    "./src/**/*"
+    "example",
+    "build"
   ],
   "lib": [
     "es2015"
