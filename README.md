@@ -10,6 +10,7 @@ A lightweight Node.js and TypeScript dependency injection framework powered [tsy
 ### Table of Contents
 - [Installation](#installation)
 - [Quick Start](#quick-start)
+- [coreSettings](#coresettings)
 - [Decorators](#decorators)
   - [Controller()](#controller)
   - [Get(), Post(), Put(), Delete(), Head(), Patch(), Options()](#get-post-put-delete-head-patch-options)
@@ -21,6 +22,7 @@ A lightweight Node.js and TypeScript dependency injection framework powered [tsy
   - [Service](#service)
   - [Events](#events)
   - [EndpointOptions](#endpointoptions)
+
 
 ## Installation
 
@@ -62,12 +64,15 @@ export default class ResponseModel<T> {
 
 ```typescript
 // application.ts
-import { Modules, PermissionModule, HandleErrorResponse, DataSource, dataSourceList, EventsModules } from "helocore";
+import { Modules, PermissionModule, HandleErrorResponse, DataSource, dataSourceList, EventsModules, coreSettings } from "helocore";
 import TestController from './TestController'
 import PermissionControl from './PermissionControl'
 import Redis from './Redis'
 import ResponseModel from './ResponseModel'
 import EventsTest from './Events'
+
+// default true
+coreSettings.logger = false
 
 // Controller layer defining
 Modules([
@@ -117,6 +122,10 @@ fastify.register((app, _, done) => {
 
 fastify.listen({ port: 3000 }, () => console.log('API is Running'))
 ```
+
+## coreSettings
+
+- **logger**: helocore logger with trace_id to command prompt. it can reachable from `req.trace_id`
 
 ## Decorators
 

@@ -3,5 +3,8 @@ export const coreSettings: TSettings = {
 }
 
 type TSettings = {
+  /**
+   * Default true
+   */
   logger: boolean
 }
