@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.20](https://github.com/helorobo/helocore/compare/v1.0.19...v1.0.20) (2024-05-02)
+
+
+### :rocket: Features
+
+* added core settings ([98c6ea8](https://github.com/helorobo/helocore/commit/98c6ea86bd676145f251a67dd809182df6db633c))
+* added to coresettings ([7e9d270](https://github.com/helorobo/helocore/commit/7e9d270a2ec35e4d456dd6f92bda1c5207e09f42))
+* added trace_id to logs ([848025a](https://github.com/helorobo/helocore/commit/848025ae0785a2f4b9a63b81681850dc2bab6acf))
+
 ## [1.0.19](https://github.com/helorobo/helocore/compare/v1.0.18...v1.0.19) (2024-03-19)
 
 
