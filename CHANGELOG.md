@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.21](https://github.com/helorobo/helocore/compare/v1.0.20...v1.0.21) (2024-05-02)
+
+
+### :bug: Bug Fixes
+
+* build process fixed ([3f23d60](https://github.com/helorobo/helocore/commit/3f23d609ca76a2d2ebfb954b27e94963ec769f37))
+
 ## [1.0.20](https://github.com/helorobo/helocore/compare/v1.0.19...v1.0.20) (2024-05-02)
 
 
