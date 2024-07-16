@@ -3,7 +3,7 @@ import ServiceResponse from '../models/ServiceResponse'
 
 @Controller('/event')
 @injectable()
-export default class UploadController {
+export default class EventController {
   constructor(
     private readonly events: Events
   ) { }
