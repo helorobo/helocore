@@ -222,7 +222,7 @@ export type TMiddlewareFuncs<T> = { [I in keyof T]: {
   class: new (...a: any) => T[I]
 } }
 
-async function getMetaData(req: TCustomFastifyRequest, res: FastifyReply, target: Function, method: string, paramsCount: number): Promise<Object> {
+export async function getMetaData(req: TCustomFastifyRequest, res: FastifyReply, target: Function, method: string, paramsCount: number): Promise<Object> {
   const args = []
 
   const requestParameters: number[] = Reflect.getOwnMetadata(requestMetadataKey, target, method)

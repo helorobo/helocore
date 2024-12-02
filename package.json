@@ -38,6 +38,7 @@
     "nanoid": "^3.1.32",
     "pino": "^8.11.0",
     "reflect-metadata": "^0.1.13",
+    "mercurius": "^14.1.0",
     "tsyringe": "^4.7.0"
   },
   "devDependencies": {

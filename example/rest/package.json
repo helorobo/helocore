@@ -14,7 +14,7 @@
     "@fastify/multipart": "^7.6.0",
     "@fastify/rate-limit": "^9.1.0",
     "fastify": "^4.25.2",
-    "helocore": "file:../",
+    "helocore": "file:../../",
     "reflect-metadata": "^0.1.13",
     "zod": "^3.21.4"
   },
