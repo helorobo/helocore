@@ -21,3 +21,5 @@ export { HandleErrorResponse } from './src/HandleErrorResponse'
 export { HandleSuccessResponse } from './src/HandleSuccessResponse'
 export * from './src/Events'
 export * from "./src/Settings"
+
+export * from './src/qraphql'

@@ -1,8 +1,4 @@
-export const GetUsers = `users: [User]`
-
-export const CreateUser = `createUser(name: String!): User`
-
-export const User = `
+export const Types = `
   type User {
     id: ID!
     name: String!

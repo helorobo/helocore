@@ -11,6 +11,7 @@ import { RateLimitOptions } from "@fastify/rate-limit"
 import { moduleList } from "./Modules"
 import { handleErrorFunction } from "./HandleErrorResponse"
 import { coreSettings } from "./Settings"
+import { bodyVariablesMetadataKey, bodyQueryMetadataKey } from "./qraphql"
 
 export const requestMetadataKey = Symbol("Request")
 export const bodyMetadataKey = Symbol("Body")
@@ -42,7 +43,7 @@ type TDefinedMiddlewares = {
 
 type FileType = { field: string, index: number[] }
 
-async function runPrefixMiddleware<T extends readonly object[]>(req: TCustomFastifyRequest, res: FastifyReply, middlewares: [...TMiddlewareFuncs<T>]) {
+export async function runPrefixMiddleware<T extends readonly object[]>(req: TCustomFastifyRequest, res: FastifyReply, middlewares: [...TMiddlewareFuncs<T>]) {
   try {
     for (const middleware of middlewares) {
       for (const func of middleware.funcs) {
@@ -67,7 +68,7 @@ async function runPrefixMiddleware<T extends readonly object[]>(req: TCustomFast
   }
 }
 
-async function runPermissionControl(req: TCustomFastifyRequest, res: FastifyReply, targetPrototype: Function, method: string) {
+export async function runPermissionControl(req: TCustomFastifyRequest, res: FastifyReply, targetPrototype: Function, method: string) {
   try {
     if (definePermissionFunction) {
       const permissions = Reflect.getOwnMetadata(permissionMetadataKey, targetPrototype, method) as { permissions: Array<string> }
@@ -90,7 +91,7 @@ async function runPermissionControl(req: TCustomFastifyRequest, res: FastifyRepl
   }
 }
 
-async function runMiddleware(req: TCustomFastifyRequest, res: FastifyReply, targetPrototype: Function, method: string) {
+export async function runMiddleware(req: TCustomFastifyRequest, res: FastifyReply, targetPrototype: Function, method: string) {
   try {
     const getMiddlewares = Reflect.getOwnMetadata(middlewareMetadataKey, targetPrototype, method)
     if (getMiddlewares) {
@@ -253,6 +254,16 @@ export async function getMetaData(req: TCustomFastifyRequest, res: FastifyReply,
   const replyParameters: number[] = Reflect.getOwnMetadata(replyMetadataKey, target, method)
   if (replyParameters) {
     args.push({ id: replyParameters, data: res })
+  }
+
+  const bodyVariablesParameters: number[] = Reflect.getOwnMetadata(bodyVariablesMetadataKey, target, method)
+  if (bodyVariablesParameters) {
+    args.push({ id: bodyVariablesParameters, data: (<any>req.body).variables })
+  }
+
+  const bodyQueryParameters: number[] = Reflect.getOwnMetadata(bodyQueryMetadataKey, target, method)
+  if (bodyQueryParameters) {
+    args.push({ id: bodyQueryParameters, data: (<any>req.body).query })
   }
 
   const fileParameters: FileType = Reflect.getOwnMetadata(fileMetadataKey, target, method)

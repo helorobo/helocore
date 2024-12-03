@@ -5,20 +5,20 @@ import { GraphQLMethod } from "../types";
 export class SetupMercurius {
   static resolvers: Array<{
     resolver: {
-      resolver: string,
+      resolver: [string, string],
       type: GraphQLMethod
     },
     controllerFunction: Function
   }> = []
 
-  static addResolver(resolver: { resolver: string, type: GraphQLMethod }, controllerFunction: RouteHandlerMethod) {
+  static addResolver(resolver: { resolver: [string, string], type: GraphQLMethod }, controllerFunction: RouteHandlerMethod) {
     SetupMercurius.resolvers.push({
       resolver: resolver,
       controllerFunction: controllerFunction,
     })
   }
 
-  fetchResolvers(fastify: FastifyInstance, graphiql: boolean = true) {
+  fetchResolvers(fastify: FastifyInstance, types: string, graphiql: boolean = true) {
     const resolvers = {} as any
 
     const mutations = []
@@ -30,17 +30,17 @@ export class SetupMercurius {
           resolvers.Mutation = {}
         }
 
-        resolvers.Mutation['a'] = resolver.controllerFunction
+        resolvers.Mutation[resolver.resolver.resolver[0]] = resolver.controllerFunction
 
-        mutations.push(resolver.resolver.resolver)
+        mutations.push(resolver.resolver.resolver[1])
       } else if (resolver.resolver.type === GraphQLMethod.Query) {
         if (!resolvers.Query) {
           resolvers.Query = {}
         }
 
-        resolvers.Query['b'] = resolver.controllerFunction
+        resolvers.Query[resolver.resolver.resolver[0]] = resolver.controllerFunction
 
-        queries.push(resolver.resolver.resolver)
+        queries.push(resolver.resolver.resolver[1])
       }
     }
 
@@ -60,11 +60,7 @@ export class SetupMercurius {
         }`
     }
 
-    const schema = mutation + query + `
-  type User {
-    id: ID!
-    name: String!
-  }`
+    const schema = mutation + query + types
 
     // Mercurius ile GraphQL Entegrasyonu
     fastify.register(mercurius, {
@@ -75,4 +71,4 @@ export class SetupMercurius {
   }
 }
 
-export const MercuriusSetup = (fastify: FastifyInstance) => new SetupMercurius().fetchResolvers(fastify)
+export const MercuriusSetup = (fastify: FastifyInstance, types: string) => new SetupMercurius().fetchResolvers(fastify, types)

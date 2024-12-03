@@ -1,6 +1,5 @@
-import { injectable } from 'helocore'
-import { Variables, Mutation, QraphqlResolver } from 'helocore/src/qraphql'
-import { CreateUser } from './schema';
+import { injectable, BodyVariables, Mutation, QraphqlResolver, QQuery, Middleware } from 'helocore'
+import Validation from './Validation'
 
 @QraphqlResolver()
 @injectable()
@@ -8,11 +7,17 @@ export default class TestController {
   constructor(
   ) { }
 
-  @Mutation(CreateUser)
-  // @Middleware([{ funcs: ['FilterMimeType'], class: Validation }])
-  async Test(@Variables data: any) {
-    console.log(data)
+  @Mutation('createUser', 'createUser(name: String!): User')
+  @Middleware([{ funcs: ['Test'], class: Validation }])
+  async Test(@BodyVariables variables: any) {
+    console.log(variables)
+    return variables
+  }
 
+  @QQuery('hello', 'hello: String')
+  @Middleware([{ funcs: ['Test'], class: Validation }])
+  async Test1() {
+    return 'hello world'
   }
 
 }

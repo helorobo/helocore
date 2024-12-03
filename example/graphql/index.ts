@@ -1,9 +1,10 @@
 import 'reflect-metadata'
 import './application'
 
-import { MercuriusSetup } from 'helocore/src/qraphql/SetupMercurius'
+import { MercuriusSetup } from 'helocore'
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
+import { Types } from './src/schema'
 
 function main() {
 
@@ -15,7 +16,7 @@ function main() {
   fastify.register(cors)
 
   fastify.register((app, _, done) => {
-    MercuriusSetup(app)
+    MercuriusSetup(app, Types)
     done()
   })
 
