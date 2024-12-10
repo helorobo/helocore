@@ -4,7 +4,7 @@ import { moduleList } from "../Modules"
 import { SetupMercurius } from "./SetupMercurius"
 
 export const mutationMetadataKey = Symbol("Mutation")
-export const qqueryMetadataKey = Symbol("QQeury")
+export const gqueryMetadataKey = Symbol("GQeury")
 
 export function Mutation(key: string, schema: string) {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
@@ -15,9 +15,9 @@ export function Mutation(key: string, schema: string) {
   }
 }
 
-export function QQuery(key: string, schema: string) {
+export function GQuery(key: string, schema: string) {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    Reflect.defineMetadata(qqueryMetadataKey, {
+    Reflect.defineMetadata(gqueryMetadataKey, {
       type: GraphQLMethod.Query,
       resolver: [key, schema]
     }, target, propertyKey)
@@ -75,7 +75,7 @@ function createMutations(targetPrototype: Function, method: string) {
 }
 
 function createQueries(targetPrototype: Function, method: string) {
-  const existsEndpoint: { resolver: [string, string], type: GraphQLMethod } = Reflect.getOwnMetadata(qqueryMetadataKey, targetPrototype, method)
+  const existsEndpoint: { resolver: [string, string], type: GraphQLMethod } = Reflect.getOwnMetadata(gqueryMetadataKey, targetPrototype, method)
   if (existsEndpoint) {
     SetupMercurius.addResolver(existsEndpoint, targetPrototype[method])
   }

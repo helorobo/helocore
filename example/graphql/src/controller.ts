@@ -1,4 +1,4 @@
-import { injectable, BodyVariables, Mutation, QraphqlResolver, QQuery, Middleware } from 'helocore'
+import { injectable, BodyVariables, Mutation, QraphqlResolver, GQuery, Middleware } from 'helocore'
 import Validation from './Validation'
 
 @QraphqlResolver()
@@ -14,7 +14,7 @@ export default class TestController {
     return variables
   }
 
-  @QQuery('hello', 'hello: String')
+  @GQuery('hello', 'hello: String')
   @Middleware([{ funcs: ['Test'], class: Validation }])
   async Test1() {
     return 'hello world'
