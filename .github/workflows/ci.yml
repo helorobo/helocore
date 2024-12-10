@@ -15,33 +15,33 @@ jobs:
         with:
           node-version: 18
 
-      - name: checkout
-        uses: actions/checkout@master
-        with:
-          fetch-depth: 0
+    #   - name: checkout
+    #     uses: actions/checkout@master
+    #     with:
+    #       fetch-depth: 0
 
-      - name: git config
-        run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+    #   - name: git config
+    #     run: |
+    #       git config user.name "${GITHUB_ACTOR}"
+    #       git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Install release-it
-        run: npm install -g release-it @release-it/conventional-changelog
+    #   - name: Install release-it
+    #     run: npm install -g release-it @release-it/conventional-changelog
 
-      - name: Release with release-it
-        run: release-it
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   - name: Release with release-it
+    #     run: release-it
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Dependencies
-        run: npm install
+    #   - name: Install Dependencies
+    #     run: npm install
 
-      - name: Build TypeScript
-        run: npm run build 
+    #   - name: Build TypeScript
+    #     run: npm run build 
 
-      - name: Publish to NPM
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > ~/.npmrc
-          npm publish
+    #   - name: Publish to NPM
+    #     env:
+    #       NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    #     run: |
+    #       echo "//registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}" > ~/.npmrc
+    #       npm publish
