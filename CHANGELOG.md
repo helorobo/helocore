@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.23](https://github.com/helorobo/helocore/compare/v1.0.22...v1.0.23) (2024-12-10)
+
+### :broom: Chore
+
+* version updated ([9d84da6](https://github.com/helorobo/helocore/commit/9d84da6f3f5943a44e025d4a1854e48b3db73fa5))
+
 ## [1.0.21](https://github.com/helorobo/helocore/compare/v1.0.20...v1.0.21) (2024-05-02)
 
 
