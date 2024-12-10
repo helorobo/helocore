@@ -25,3 +25,8 @@ export type RoutesData = {
 }
 
 export type TCustomFastifyRequest = FastifyRequest & { trace_id: string }
+
+export enum GraphQLMethod {
+  Mutation = 'mutation',
+  Query = 'query'
+}
