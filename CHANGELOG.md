@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/helorobo/helocore/compare/v1.0.23...v1.1.0) (2024-12-10)
+
+### :rocket: Features
+
+* graphql developing ([f9cfa5b](https://github.com/helorobo/helocore/commit/f9cfa5bf6118e02e437a35f87e2a7f2ec9802dc7))
+* last improve graphql ([acd0bdc](https://github.com/helorobo/helocore/commit/acd0bdc9d52c9f1c4ab62287a3afbd9e6a4489e6))
+* qraphql process completed ([6673026](https://github.com/helorobo/helocore/commit/667302666cdebcd82aa3e5df2bec2c8f98aa4ea2))
+
+### :bug: Bug Fixes
+
+* ci/cd updated ([364dcc9](https://github.com/helorobo/helocore/commit/364dcc95e6efaeffd6a5f54d5a327e3bcfb51511))
+
+### :broom: Chore
+
+* version updated ([afde8f3](https://github.com/helorobo/helocore/commit/afde8f31afe64800af881b3abadaced00f7167ba))
+
 ## [1.0.23](https://github.com/helorobo/helocore/compare/v1.0.22...v1.0.23) (2024-12-10)
 
 ### :broom: Chore
