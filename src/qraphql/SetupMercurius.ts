@@ -71,4 +71,4 @@ export class SetupMercurius {
   }
 }
 
-export const MercuriusSetup = (fastify: FastifyInstance, types: string, mercuriusConfig: MercuriusCommonOptions) => new SetupMercurius().fetchResolvers(fastify, types, mercuriusConfig)
+export const MercuriusSetup = (fastify: FastifyInstance, types: string, mercuriusConfig?: MercuriusCommonOptions) => new SetupMercurius().fetchResolvers(fastify, types, mercuriusConfig)
