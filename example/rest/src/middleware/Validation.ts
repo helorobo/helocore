@@ -1,8 +1,9 @@
 import { z } from 'zod'
-import { File, defineMiddleware, Query } from 'helocore'
+import { File, defineMiddleware, Query, singleton } from 'helocore'
 import { TFile } from '../types'
 
 @defineMiddleware
+@singleton()
 export default class Validation {
   constructor() { }
 

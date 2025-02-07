@@ -1,5 +1,5 @@
 import { FastifyInstance, RouteHandlerMethod } from "fastify";
-import mercurius from 'mercurius'
+import mercurius, { MercuriusCommonOptions } from 'mercurius'
 import { GraphQLMethod } from "../types";
 
 export class SetupMercurius {
@@ -18,7 +18,7 @@ export class SetupMercurius {
     })
   }
 
-  fetchResolvers(fastify: FastifyInstance, types: string, graphiql: boolean = true) {
+  fetchResolvers(fastify: FastifyInstance, types: string, mercuriusConfig: MercuriusCommonOptions = {}) {
     const resolvers = {} as any
 
     const mutations = []
@@ -66,9 +66,9 @@ export class SetupMercurius {
     fastify.register(mercurius, {
       schema,
       resolvers,
-      graphiql: graphiql, // GraphQL arayüzü etkinleştir
+      ...mercuriusConfig
     });
   }
 }
 
-export const MercuriusSetup = (fastify: FastifyInstance, types: string) => new SetupMercurius().fetchResolvers(fastify, types)
+export const MercuriusSetup = (fastify: FastifyInstance, types: string, mercuriusConfig: MercuriusCommonOptions) => new SetupMercurius().fetchResolvers(fastify, types, mercuriusConfig)

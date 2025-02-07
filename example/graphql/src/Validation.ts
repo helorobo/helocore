@@ -1,7 +1,8 @@
 import { z } from 'zod'
-import { defineMiddleware, BodyVariables } from 'helocore'
+import { defineMiddleware, BodyVariables, singleton } from 'helocore'
 
 @defineMiddleware
+@singleton()
 export default class Validation {
   constructor() { }
 
