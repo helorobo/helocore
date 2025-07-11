@@ -1,5 +1,5 @@
 # Source code
-src/
+*.ts
 example/
 index.ts
 
