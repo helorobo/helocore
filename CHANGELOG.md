@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.6](https://github.com/helorobo/helocore/compare/v1.1.2...v1.1.6) (2025-07-11)
+
+### :rocket: Features
+
+* ci problem resolved ([a44d3ac](https://github.com/helorobo/helocore/commit/a44d3acd41340c67743b64cd938734a66af21b69))
+* version updates ([b1d0201](https://github.com/helorobo/helocore/commit/b1d02012073ebd8565c7e2c9cf61121cf65d039e))
+
+### :bug: Bug Fixes
+
+* ci problem solved ([6616214](https://github.com/helorobo/helocore/commit/66162149f2e4316252f4dc1aac2247838ffef016))
+
 ## [1.1.0](https://github.com/helorobo/helocore/compare/v1.0.23...v1.1.0) (2024-12-10)
 
 ### :rocket: Features
