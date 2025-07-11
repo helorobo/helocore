@@ -29,7 +29,7 @@ function main() {
     }
   })
   fastify.register(MultiPart, {
-    addToBody: true,
+    attachFieldsToBody: true,
     limits: {
       fieldNameSize: 100, // Max field name size in bytes
       fieldSize: 100,     // Max field value size in bytes
