@@ -145,9 +145,11 @@ async function runController(req: TCustomFastifyRequest, res: FastifyReply, targ
       return
     }
 
-    response.trace_id = req.trace_id
+    if (response) {
+      response.trace_id = req.trace_id
 
-    return res.status(response.status_code || 200).send(response)
+      return res.status(response.status_code || 200).send(response)
+    }
   } catch (error) {
     if (coreSettings.logger) {
       pino().error({
