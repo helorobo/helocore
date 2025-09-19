@@ -34,6 +34,10 @@ export function Reply(target: Object, propertyKey: string | symbol, parameterInd
 
 export function File(field: string) {
   return function (target: Object, propertyKey: string | symbol, parameterIndex: number) {
-    Reflect.defineMetadata(fileMetadataKey, { field: field, index: [parameterIndex] }, target, propertyKey)
+    const existingMetadata = Reflect.getMetadata(fileMetadataKey, target, propertyKey) || []
+    const newMetadata = Array.isArray(existingMetadata) 
+      ? [...existingMetadata, { field: field, index: parameterIndex }]
+      : [{ field: field, index: parameterIndex }]
+    Reflect.defineMetadata(fileMetadataKey, newMetadata, target, propertyKey)
   }
 }

@@ -268,16 +268,14 @@ export async function getMetaData(req: TCustomFastifyRequest, res: FastifyReply,
     args.push({ id: bodyQueryParameters, data: (<any>req.body).query })
   }
 
-  const fileParameters: FileType = Reflect.getOwnMetadata(fileMetadataKey, target, method)
-  if (fileParameters) {
-    try {
-      if (!req.body[fileParameters.field]) {
-        throw new Error("File not Found")
+  const fileParameters: Array<FileType> = Reflect.getOwnMetadata(fileMetadataKey, target, method)
+  if (Array.isArray(fileParameters)) {
+    for (const item of fileParameters) {
+      if (!req.body[item.field]) {
+        continue
       }
 
-      args.push({ id: fileParameters.index, data: req.body[fileParameters.field] })
-    } catch (error) {
-      throw new Error("Request Body not Found")
+      args.push({ id: item.index, data: req.body[item.field] })
     }
   }
 
